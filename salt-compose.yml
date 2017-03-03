@@ -1,0 +1,13 @@
+version: '2'
+services:
+  master:
+    build: master
+    container_name: master
+    hostname: master
+  minion:
+    build: minion
+    container_name: minion
+    hostname: minion
+    depends_on:
+      - master
+
