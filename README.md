@@ -1,14 +1,24 @@
 # salt-test-docker
 Salt in docker env to test salt functionalities:
 
-run:
- docker-compose -f salt-compose.yml up --build
+### Prerequisites
 
-Check all well configured:
- docker exec -it master salt '*' test.ping
+docker and docker-compose installed
 
- minion:
+### Build
+
+```
+docker-compose -f salt-compose.yml up --build
+```
+
+### Check
+
+```
+docker exec -it master salt '*' test.ping
+```
+```
+minion:
     True
-
+```
 
 
