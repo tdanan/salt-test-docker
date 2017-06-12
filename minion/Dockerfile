@@ -11,8 +11,9 @@ RUN yum repolist
 RUN yum -y install salt-minion 
 
 # prepare conf folders
-RUN mkdir -p /etc/salt/
-COPY etc/minion /etc/salt/
+RUN mkdir -p /etc/salt/minion.d/
+RUN hostname -s > /etc/salt/minion_id
+RUN echo "master: master" > /etc/salt/minion.d/scality.conf
 
 EXPOSE 4505 4506 8080 8081
 

@@ -10,14 +10,8 @@ RUN yum -y install epel-release
 RUN yum repolist
 RUN yum -y install salt-master
 
-# prepare conf folders
-RUN mkdir -p /etc/salt/pki/master
-
-# deploy minion conf
-COPY etc/master /etc/salt/
-
-# deploy secret keys
-COPY etc/master.p* /etc/salt/pki/master/
+RUN mkdir -p /etc/salt
+COPY etc/master /etc/salt/master
 
 EXPOSE 4505 4506 8080 8081
 
